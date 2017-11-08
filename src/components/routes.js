@@ -2,7 +2,7 @@ import { Content }
   from './app/AppContent'
 import List from './hotel/categorias/List'
 import Habitacion from './hotel/habitacion/Habitacion'
-import Client from './hotel/clientes/Client'
+import Person from './hotel/person/Person'
 import Home from './hotel/home/Home'
 import Login from './Login'
 
@@ -40,7 +40,7 @@ const routes = [
     path: '/form',
     exact: true,
     title: 'Categorias',
-    component: Client
+    component: Person
   },
 
 
