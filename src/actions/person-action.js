@@ -1,6 +1,6 @@
 //import axios from "axios";
 
-import client from './'
+import person from './'
 
 //https://github.com/brandiqa/redux-crud-example/blob/master/src/actions/contact-actions.js#L22
 
@@ -36,7 +36,7 @@ export const getList = (q = '') => {
         }
     }
     return (dispatch) => {
-        client.get(url, params).then(r => {
+        person.get(url, params).then(r => {
             dispatch(personListSuccess(r.data))
         }).catch(error => { //throw (error)
             //console.log('getList catch:' + JSON.stringify(error.response))
@@ -58,7 +58,7 @@ export const getList = (q = '') => {
 export function save(data, history) {
     console.log('save data:' + JSON.stringify(data))
     return (dispatch) => {
-        return client.post(url, data)
+        return person.post(url, data)
             .then((r) => {
                 dispatch({
                     "type": PERSON_ADD,
@@ -75,7 +75,7 @@ export function save(data, history) {
 
 export function getById(id) {
     return dispatch => {
-        return client.get(`${url}${id}`)
+        return person.get(`${url}${id}`)
             .then((r) => {
                 /*
                 dispatch({
@@ -94,7 +94,7 @@ export function getById(id) {
 
 export function update(data, history) {
     return (dispatch) => {
-        return client.put(`${url}${data.id}/`, data)
+        return person.put(`${url}${data.id}/`, data)
             .then((r) => {
                 dispatch({
                     "type": PERSON_UPDATE,
@@ -111,7 +111,7 @@ export function update(data, history) {
 
 export function del(_id, history) {
     return dispatch => {
-        return client.delete(`${url}${_id}`)
+        return person.delete(`${url}${_id}`)
             .then((r) => {
                 //console.log('deletex r:' + JSON.stringify(r))
                 dispatch({
