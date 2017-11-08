@@ -24,10 +24,7 @@ const categoriaReducer = (state = initialState, action) => {
             list: [],
             error: action.error,
         }
-        case CATEGORIA_UPDATE: return {
-            ...state,
-            //data: {} // no usado aun
-        }
+  
         default: return state
     }
 

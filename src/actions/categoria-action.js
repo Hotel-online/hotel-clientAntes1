@@ -21,7 +21,6 @@ export const categoriaListFailure = error => ({
     error
 })
 
-export const CATEGORIA_UPDATE = "CATEGORIA_UPDATE"
 
 export const getList = (q = '') => {
     let params = {
@@ -46,23 +45,6 @@ export const getList = (q = '') => {
             }
             //console.log(error.config);
         })
-    }
-}
-
-export function update(data, history) {
-    return (dispatch) => {
-        return client.put(`${url}${data.id}/`, data)
-            .then((r) => {
-                dispatch({
-                    "type": CATEGORIA_UPDATE,
-                    "data": r.data //no usado
-                })
-                history.push('/catalogo/categorias/list')
-            })
-            .catch((error) => {
-                console.log(error)
-                throw (error)
-            })
     }
 }
 
