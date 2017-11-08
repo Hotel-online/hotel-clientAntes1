@@ -19,6 +19,7 @@ class Header extends Component {
                 <li><Link to="/login">login</Link></li>
                 <li><Link to='/hotel/categorias/list'>Habitaciones</Link></li>
                 <li><Link to="/photos">Fotos</Link></li>
+                <li><Link to="/hotel/categoria2/list">Categoria</Link></li>
               </ul>
               <span>
                 <i className="fa fa-bars fa-2x " aria-hidden="true"></i>
@@ -30,4 +31,3 @@ class Header extends Component {
 }
 
 export default Header;
-
