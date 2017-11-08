@@ -38,7 +38,7 @@ class Habitacion extends Component {
                             <div className="info info_color">
                                 <NavLink exact to="/informations" activeClassName="selected"><h3>Mas informacion</h3></NavLink>
                                 <p>
-                                    <Link exact to="/forms" activeClassName="selected">Reservar</Link>
+                                    <Link exact to="/form" activeClassName="selected">Reservar</Link>
                                 </p>
                             </div>
                         </div>

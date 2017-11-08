@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+
 import { save, getById, update} from '../../../actions/person-action'
 import { connect } from 'react-redux'
 
@@ -14,7 +15,6 @@ class Person extends Component {
         super(props);
         this.state = {
             id: props.data ? props.data.id : null,
-            codigo: props.data ? props.data.codigo : '',
             name: props.data ? props.data.name : '',
             first_name: props.data ? props.data.first_name : '',
             last_name: props.data ? props.data.last_name : '',
