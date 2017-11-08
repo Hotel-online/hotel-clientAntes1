@@ -9,7 +9,7 @@ import {
   NavLink
 } from 'react-router-dom'
 import { UncontrolledCarousel } from 'reactstrap';
-  
+
 const items = [
   {
     src: 'http://rossello-barcelona.eveniahotels.com/wp-content/uploads/2013/12/Family.jpg',
@@ -92,4 +92,3 @@ export default connect(mapStateToProps, {
   getList,
 
 })(List)
-
