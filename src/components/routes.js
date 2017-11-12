@@ -6,6 +6,8 @@ import Person from './hotel/person/Person'
 import PersonList from './hotel/person2/List'
 import PersonForm from './hotel/person2/Form'
 import Home from './hotel/home/Home'
+import CategoriaList from './hotel/categoria2/List'
+import CategoriaForm from './hotel/categoria2/Form'
 import Login from './Login'
 
 const routese = [
@@ -30,6 +32,28 @@ const routes = [
     exact: true,
     title: 'Categorias',
     component: Habitacion
+  },
+  {
+   path: '/hotel',
+   //title: 'categorias!',
+   component: Content,
+   routes: [
+     {
+       path: '/hotel/categoria2/list',
+       //title: 'list cat!',
+       component: CategoriaList
+     },
+     {
+       path: '/hotel/categoria2/new',
+       //title: 'new cat!',
+       component: CategoriaForm
+     },
+     {
+       path: '/hotel/categoria2/edit/:id',
+       //title: 'edit cat!',
+       component: CategoriaForm
+     }
+   ]
   },
   {
     path: '/informations',
