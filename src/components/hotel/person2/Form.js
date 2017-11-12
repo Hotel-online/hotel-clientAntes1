@@ -1,16 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-
-import { save, getById, update} from '../../../actions/person-action'
 import { connect } from 'react-redux'
+import { save, getById, update } from '../../../actions/person-action'
 
-import {
-    Link,
-    NavLink
-} from 'react-router-dom'
-
-class Person extends Component {
-
+class Form extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -27,38 +20,7 @@ class Person extends Component {
             nombre: ''
         }*/
     }
-    /*
-        componentWillReceiveProps = (nextProps) => { // Load Asynchronously
-            const { data } = nextProps;
-            console.log('componentWillReceiveProps data:' + JSON.stringify(data))
-            this.setState({
-                id: data.id,
-                codigo: data.codigo,
-                nombre: data.nombre
-            })
-        }
-    */
-    componentWillMount = () => {
-        /*
-        const { id } = this.props.match.params
-        if (id) {
-            //this.props.getById(id)
-            //this.props.getItemAsync(id)
 
-            this.props.getById(id).then(data => {
-                console.log('componentWillReceiveProps data:' + JSON.stringify(data))
-                this.setState({
-                    id: data.id,
-                    codigo: data.codigo,
-                    nombre: data.nombre
-                })
-            }).catch(e => {
-
-            });
-        }
-        */
-    }
-   
     componentDidMount() {
         const { id } = this.props.match.params
         if (id) {
@@ -75,7 +37,6 @@ class Person extends Component {
         }
 
     }
-
     handleInputChange = event => {
         const target = event.target
         const value = target.type === 'checkbox' ? target.checked : target.value
@@ -86,7 +47,6 @@ class Person extends Component {
         })
 
     }
-
     handleSubmit = event => {
         event.preventDefault()
         console.log('d=' + JSON.stringify(this.state))
@@ -100,51 +60,57 @@ class Person extends Component {
             })
         } else {
             this.props.save(this.state, this.props.history).then(r => {
-                r.push('/home')
+                r.push('/hotel/person2/list')
             }, error => {
                 throw (error)
             })
         }
     }
 
-
     render() {
+        //console.log(JSON.stringify(this.props))
+        //const { list } = this.props
         return (
-            <div className="imgbackground portada">
-            <div className="reserva">
+            <div>
                 <form onSubmit={this.handleSubmit}>
-            <input type="text" className="form2" placeholder="Nombre"
+                    <label>Nombre:
+            <input type="text"
                             value={this.state.name}
                             onChange={this.handleInputChange}
                             name="name" />
-            <input type="text" className="form2" placeholder="Apellido Paterno"
+                    </label><br />
+                    <label>Apellido Paterno:
+            <input type="text"
                             value={this.state.first_name}
                             onChange={this.handleInputChange}
                             name="first_name" />
-            <input type="text" className="form2" placeholder="Apellido Materno"
+                    </label><br />
+                    <label>Apellido Materno:
+            <input type="text"
                             value={this.state.last_name}
                             onChange={this.handleInputChange}
                             name="last_name" />
-            <input type="text" className="form2" placeholder="DNI" maxLength='8'
+                    </label><br />
+                    <label>DNI:
+            <input type="text" maxLength='8'
                             value={this.state.dni}
                             onChange={this.handleInputChange}
                             name="dni" />
-            <input type="text" className="form2" placeholder="Email"
+                    </label><br />
+                    <label>Email:
+            <input type="text"
                             value={this.state.email}
                             onChange={this.handleInputChange}
                             name="email" />
-                    <input type="submit" className="form2btn" value="Enviar"/>
+                    </label>
+                    <input type="submit" value="Enviar"/>
                 </form>
 
             </div>
-
-          </div>
-        );
+        )
     }
 }
-
-
-Person.propTypes = {
+Form.propTypes = {
     data: PropTypes.object
 }
 
@@ -159,10 +125,8 @@ const mapStateToProps = (state, props) => {
     }
 
 }
-
 export default connect(mapStateToProps, {
     save,
     getById,
     update
-
-})(Person)
+})(Form)

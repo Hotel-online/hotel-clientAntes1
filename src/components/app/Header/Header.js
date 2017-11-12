@@ -19,6 +19,7 @@ class Header extends Component {
                 <li><Link to="/login">login</Link></li>
                 <li><Link to='/hotel/categorias/list'>Habitaciones</Link></li>
                 <li><Link to="/photos">Fotos</Link></li>
+                <li><Link to="/hotel/person2/list">Person</Link></li>
               </ul>
               <span>
                 <i className="fa fa-bars fa-2x " aria-hidden="true"></i>
