@@ -58,7 +58,7 @@ class List extends Component {
                 S/{d.precio}
                      </p>
               <p>
-                <NavLink exact to="/forms" activeClassName="selected">Reservar</NavLink>
+                <NavLink exact to="/form" activeClassName="selected">Reservar</NavLink>
               </p>
             </div>
           </div>
